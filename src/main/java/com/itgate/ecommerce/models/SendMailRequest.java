@@ -1,7 +1,5 @@
 package com.itgate.ecommerce.models;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class SendMailRequest {
     private String to;
     private String subject;

@@ -3,18 +3,15 @@ package com.itgate.ecommerce.controllers;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
-
-import com.itgate.ecommerce.exception.TokenRefreshException;
-import com.itgate.ecommerce.models.*;
-import com.itgate.ecommerce.repository.EquipeFederaRepository;
-import com.itgate.ecommerce.repository.RoleRepository;
-import com.itgate.ecommerce.repository.UserRepository;
-import com.itgate.ecommerce.utils.StorageService;
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
-import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -29,18 +26,43 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.itgate.ecommerce.exception.TokenRefreshException;
+import com.itgate.ecommerce.models.ChangePasswordRequest;
+import com.itgate.ecommerce.models.ERole;
+import com.itgate.ecommerce.models.EquipeFederation;
+import com.itgate.ecommerce.models.RefreshToken;
+import com.itgate.ecommerce.models.Role;
+import com.itgate.ecommerce.models.User;
 import com.itgate.ecommerce.payload.request.LoginRequest;
 import com.itgate.ecommerce.payload.request.SignupRequest;
 import com.itgate.ecommerce.payload.request.TokenRefreshRequest;
 import com.itgate.ecommerce.payload.response.JwtResponse;
 import com.itgate.ecommerce.payload.response.MessageResponse;
 import com.itgate.ecommerce.payload.response.TokenRefreshResponse;
+import com.itgate.ecommerce.repository.EquipeFederaRepository;
+import com.itgate.ecommerce.repository.RoleRepository;
+import com.itgate.ecommerce.repository.UserRepository;
 import com.itgate.ecommerce.security.jwt.JwtUtils;
 import com.itgate.ecommerce.security.services.RefreshTokenService;
 import com.itgate.ecommerce.security.services.UserDetailsImpl;
-import org.springframework.web.multipart.MultipartFile;
+import com.itgate.ecommerce.utils.StorageService;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.validation.Valid;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController

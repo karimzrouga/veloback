@@ -4,15 +4,15 @@ import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.itgate.ecommerce.exception.TokenRefreshException;
-import com.itgate.ecommerce.models.RefreshToken;
-import com.itgate.ecommerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.itgate.ecommerce.exception.TokenRefreshException;
+import com.itgate.ecommerce.models.RefreshToken;
 import com.itgate.ecommerce.repository.RefreshTokenRepository;
+import com.itgate.ecommerce.repository.UserRepository;
 
 @Service
 public class RefreshTokenService {

@@ -1,13 +1,29 @@
 package com.itgate.ecommerce.controllers;
 
-import com.itgate.ecommerce.models.*;
-import com.itgate.ecommerce.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.itgate.ecommerce.models.Arbitre;
+import com.itgate.ecommerce.models.CategorieVelo;
+import com.itgate.ecommerce.models.Competition;
+import com.itgate.ecommerce.repository.ArbitreRepository;
+import com.itgate.ecommerce.repository.CategorieVeloRepository;
+import com.itgate.ecommerce.repository.CompetitionRepository;
+import com.itgate.ecommerce.repository.CoureurRepository;
+import com.itgate.ecommerce.repository.EquipeFederaRepository;
 
 @RestController
 //hedhi marbouta bel front end w tzid fichier kaml esmou util mta3 local storage

@@ -1,16 +1,25 @@
 package com.itgate.ecommerce.controllers;
 
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.itgate.ecommerce.models.Competition;
 import com.itgate.ecommerce.models.Coureur;
 import com.itgate.ecommerce.models.ResultatCompetition;
 import com.itgate.ecommerce.repository.CompetitionRepository;
 import com.itgate.ecommerce.repository.CoureurRepository;
 import com.itgate.ecommerce.repository.ResultatCompetitionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.List;
 
 @RestController
 //hedhi marbouta bel front end w tzid fichier kaml esmou util mta3 local storage
