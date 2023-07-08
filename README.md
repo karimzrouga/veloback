@@ -21,27 +21,3 @@ You can have an overview of our Spring Boot Server with the diagram below:
 
 ## Configure Spring Datasource, JPA, App properties
 Open `src/main/resources/application.properties`
-
-```properties
-spring.datasource.url= jdbc:mysql://localhost:3306/testdb?useSSL=false
-spring.datasource.username= root
-spring.datasource.password= 123456
-
-spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5InnoDBDialect
-spring.jpa.hibernate.ddl-auto= update
-
-# App Properties
-bezkoder.app.jwtSecret= bezKoderSecretKey
-bezkoder.app.jwtExpirationMs= 3600000
-bezkoder.app.jwtRefreshExpirationMs= 86400000
-```
-
-## Run Spring Boot application
-```
-mvn spring-boot:run
-```
-
-Deployment:
-> [Deploy Spring Boot App on AWS – Elastic Beanstalk](https://www.bezkoder.com/deploy-spring-boot-aws-eb/)
-
-> [Docker Compose Spring Boot and MySQL example](https://www.bezkoder.com/docker-compose-spring-boot-mysql/)
